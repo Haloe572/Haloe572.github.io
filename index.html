@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Valentine's Day Proposal</title>
+    <style>
+        body {
+            background-color: #f6c6c7;
+            font-family: 'Arial', sans-serif;
+            text-align: center;
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            flex-direction: column;
+        }
+
+        h1 {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+            font-weight: bold;
+        }
+
+        img {
+            width: 300px;
+            height: auto;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+
+        .buttons {
+            margin-top: 30px;
+        }
+
+        .button {
+            font-size: 1.5em;
+            padding: 15px 30px;
+            margin: 10px;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
+
+        .yes {
+            background-color: green;
+        }
+
+        .no {
+            background-color: red;
+        }
+
+        .button:hover {
+            transform: scale(1.1);
+        }
+
+        .message {
+            font-size: 1.5em;
+            margin-top: 20px;
+        }
+
+        .collage {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .collage img {
+            width: 100%;
+            max-width: 300px;
+            height: auto;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <img src="C:/Users/sudha/OneDrive/Desktop/StockSimulator/New folder/Screenshot 2025-01-26 230021.png" alt="Valentine's Image">
+    <h1>Will you be my Valentine, Srinidhi?</h1>
+    <div class="buttons">
+        <button class="button yes" onclick="answerYes()">Yes</button>
+        <button class="button no" onclick="answerNo()">No</button>
+    </div>
+    <div class="message" id="message"></div>
+    <div class="collage" id="collage" style="display: none;"></div>
+
+    <script>
+        function answerYes() {
+            document.getElementById('message').innerHTML = "Yay! ❤️ You're my Valentine!";
+            showCollage();
+        }
+
+        function answerNo() {
+            document.getElementById('message').innerHTML = "That's not an option!";
+            moveNoButton();
+        }
+
+        function moveNoButton() {
+            const noButton = document.querySelector('.no');
+            const randomX = Math.floor(Math.random() * (window.innerWidth - 200));
+            const randomY = Math.floor(Math.random() * (window.innerHeight - 100));
+            noButton.style.position = 'absolute';
+            noButton.style.left = randomX + 'px';
+            noButton.style.top = randomY + 'px';
+        }
+
+        function showCollage() {
+            const collage = document.getElementById('collage');
+            collage.style.display = 'grid';
+
+            // Add the images you want to display in the collage
+            const images = [
+                'C:/Users/sudha/OneDrive/Desktop/StockSimulator/New folder/Screenshot 2025-01-26 231942.png',  // Replace with actual image URLs
+                'C:/Users/sudha/OneDrive/Desktop/StockSimulator/New folder/Screenshot 2025-01-26 231958.png',
+                'C:/Users/sudha/OneDrive/Desktop/StockSimulator/New folder/Screenshot 2025-01-26 232012.png',
+                'C:/Users/sudha/OneDrive/Desktop/StockSimulator/New folder/Screenshot 2025-01-26 232023.png',
+                'C:/Users/sudha/OneDrive/Desktop/StockSimulator/New folder/Screenshot 2025-01-26 232034.png'
+            ];
+
+            images.forEach(src => {
+                const img = document.createElement('img');
+                img.src = src;
+                collage.appendChild(img);
+            });
+        }
+    </script>
+
+</body>
+</html>
